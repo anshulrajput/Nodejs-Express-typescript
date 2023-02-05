@@ -1,0 +1,524 @@
+{
+	"info": {
+		"_postman_id": "180c7fdf-b72a-423d-9c2a-ef17722aa04c",
+		"name": "Backend Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24199364"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Check Availability & Get Order Cost",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"apparels\": [\n        {\n            \"apparelCode\": \"A0001\",\n            \"size\": \"M\",\n            \"qty\": 250\n        },\n        {\n            \"apparelCode\": \"A0001\",\n            \"size\": \"S\",\n            \"qty\": 100\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_url}}/api/user/check_order",
+							"host": [
+								"{{server_url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"check_order"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Order can be fulfilled",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"apparels\": [\n        {\n            \"apparelCode\": \"A0001\",\n            \"size\": \"M\",\n            \"qty\": 250\n        },\n        {\n            \"apparelCode\": \"A0001\",\n            \"size\": \"S\",\n            \"qty\": 100\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/api/user/check_order",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"check_order"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "78"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4e-WjI+PltacFp6vsCMBE+rYA5NXuU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Feb 2023 09:05:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Order Can be Fulfilled\",\n    \"data\": {\n        \"totalCost\": 128000\n    }\n}"
+						},
+						{
+							"name": "Order cannot be fulfilled",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"apparels\": [\n        {\n            \"apparelCode\": \"A0001\",\n            \"size\": \"M\",\n            \"qty\": 250\n        },\n        {\n            \"apparelCode\": \"A0001\",\n            \"size\": \"S\",\n            \"qty\": 1000\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/api/user/check_order",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"check_order"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "54"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"36-xeNsnMH0B0jy70bs1GybhADDzj8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Feb 2023 09:06:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": false,\n    \"message\": \"Order Cannot be Fulfilled\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Vendor",
+			"item": [
+				{
+					"name": "Update Single Apparel",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vendorId\": \"V1\",\n    \"apparelCode\": \"A0001\",\n    \"size\": \"M\",\n    \"qty\": 100,\n    \"price\": 200\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_url}}/api/vendor/update_single_apparel",
+							"host": [
+								"{{server_url}}"
+							],
+							"path": [
+								"api",
+								"vendor",
+								"update_single_apparel"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Apparel Updated",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vendorId\": \"V1\",\n    \"apparelCode\": \"A0001\",\n    \"size\": \"M\",\n    \"qty\": 100,\n    \"price\": 200\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/api/vendor/update_single_apparel",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"api",
+										"vendor",
+										"update_single_apparel"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "199"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c7-NsZbzutP0S5ca5WSClDsq7LHVtQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Feb 2023 09:05:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Data Updated\",\n    \"data\": {\n        \"vendorId\": \"V1\",\n        \"apparelCode\": \"A0001\",\n        \"sizes\": [\n            {\n                \"size\": \"S\",\n                \"qty\": 10,\n                \"price\": 50\n            },\n            {\n                \"size\": \"M\",\n                \"qty\": 100,\n                \"price\": 200\n            },\n            {\n                \"size\": \"L\",\n                \"qty\": 10,\n                \"price\": 600\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "Apparel Not Found",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vendorId\": \"V1\",\n    \"apparelCode\": \"A000123\",\n    \"size\": \"M\",\n    \"qty\": 100,\n    \"price\": 200\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/api/vendor/update_single_apparel",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"api",
+										"vendor",
+										"update_single_apparel"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-43YpYRLOOOk99zX27es90u1HeBs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Feb 2023 09:06:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": false,\n    \"message\": \"Apparel Not Found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Multiple Apparel",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vendorId\": \"V2\",\n    \"apparels\": [\n        {\n            \"apparelCode\": \"A0001\",\n            \"size\": \"M\",\n            \"qty\": 100,\n            \"price\": 350\n        },\n        {\n            \"apparelCode\": \"A0001\",\n            \"size\": \"S\",\n            \"qty\": 10,\n            \"price\": 1000\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server_url}}/api/vendor/update_multiple_apparels",
+							"host": [
+								"{{server_url}}"
+							],
+							"path": [
+								"api",
+								"vendor",
+								"update_multiple_apparels"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Apparels Updated",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vendorId\": \"V2\",\n    \"apparels\": [\n        {\n            \"apparelCode\": \"A0001\",\n            \"size\": \"M\",\n            \"qty\": 100,\n            \"price\": 350\n        },\n        {\n            \"apparelCode\": \"A0001\",\n            \"size\": \"S\",\n            \"qty\": 10,\n            \"price\": 1000\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/api/vendor/update_multiple_apparels",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"api",
+										"vendor",
+										"update_multiple_apparels"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"28-s8AH1bkazKggRgrTZS4LZjHZPeU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Feb 2023 09:07:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Data Updated\"\n}"
+						},
+						{
+							"name": "One/Many Apparels Not Found",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"vendorId\": \"V2\",\n    \"apparels\": [\n        {\n            \"apparelCode\": \"A0001333\",\n            \"size\": \"M\",\n            \"qty\": 100,\n            \"price\": 350\n        },\n        {\n            \"apparelCode\": \"A0001323\",\n            \"size\": \"S\",\n            \"qty\": 10,\n            \"price\": 1000\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server_url}}/api/vendor/update_multiple_apparels",
+									"host": [
+										"{{server_url}}"
+									],
+									"path": [
+										"api",
+										"vendor",
+										"update_multiple_apparels"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "197"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c5-R0GVlunIxovqTPLo8m3LYPhPWTY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 05 Feb 2023 09:07:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": false,\n    \"message\": \"Apparels Not Found\",\n    \"data\": {\n        \"ApparelsNotFound\": [\n            {\n                \"apparelCode\": \"A0001333\",\n                \"size\": \"M\",\n                \"qty\": 100,\n                \"price\": 350\n            },\n            {\n                \"apparelCode\": \"A0001323\",\n                \"size\": \"S\",\n                \"qty\": 10,\n                \"price\": 1000\n            }\n        ]\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Check Server Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/api/status",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"api",
+						"status"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
